@@ -1,8 +1,7 @@
+from accounts.forms import CustomUserChangeForm, CustomUserCreationForm
+from accounts.models import CustomUser
 from django.test import TestCase
 from django.urls import reverse
-
-from accounts.models import CustomUser
-from accounts.forms import CustomUserCreationForm, CustomUserChangeForm
 
 TEST_USERNAME_ONE = 'OneUser'
 TEST_PASSWORD_ONE = 'one_test_password'
