@@ -11,3 +11,7 @@ Adapted: Dockerizing Django with Postgres, Gunicorn, and Nginx
 ## Sample Tutorial Code
 
 - [https://github.com/testdrivenio/django-on-docker](https://github.com/testdrivenio/django-on-docker)
+
+## Resources
+
+- [`ENTRYPOINT`](https://docs.docker.com/engine/reference/builder/#entrypoint)
