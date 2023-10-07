@@ -1,17 +1,17 @@
-# pull official base image
+# Pull official base image
 FROM python:3.11.4-slim-buster
 
-# set working directory as /usr/src/app in Docker container
+# Set working directory as /usr/src/app in Docker container
 WORKDIR /usr/src/app
 
-# set environment variables in Docker container
+# Set environment variables in Docker container
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install netcat in Docker container. netcat is used in entrypoint.sh
+# Install netcat in Docker container. Netcat is used in entrypoint.sh
 RUN apt-get update && apt-get install -y netcat
 
-# install dependencies in Docker container
+# Install dependencies in Docker container
 RUN pip install --upgrade pip
 COPY ./requirements.txt .
 RUN pip install -r requirements.txt

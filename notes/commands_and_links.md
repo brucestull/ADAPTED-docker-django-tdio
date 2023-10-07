@@ -3,12 +3,30 @@
 ## Docker Compose
 
 - `docker compose up --build`
+
 - `docker compose -f docker-compose.yml up --build`
 - `docker compose exec web python manage.py  flush --no-input`
 - `docker compose exec web python manage.py migrate --noinput`
 - `docker compose exec web python manage.py createsuperuser --email FlynntKnapp@email.app --username FlynntKnapp`
+- `docker compose -f docker-compose.yml down -v`
 
-- `docker compose exec db psql --username=postgres_user_name --dbname=docker_django_tdio_db_dev`
+- `docker compose -f docker-compose.yml up --build`
+- `docker compose -f docker-compose.yml down`
+
+
+- `docker compose -f docker-compose.prod.yml up --build`
+- `docker compose exec web python manage.py  flush --no-input`
+- `docker compose exec web python manage.py migrate --noinput`
+- `docker compose exec web python manage.py createsuperuser --email FlynntKnapp@email.app --username FlynntKnapp`
+- `docker compose -f docker-compose.prod.yml down -v`
+
+- `docker compose up --build`
+- `docker compose -f docker-compose.prod.yml up --build`
+- `docker compose -f docker-compose.prod.yml down`
+
+
+
+- `docker compose exec db psql --username=postgres_user_name_dev --dbname=docker_django_tdio_db_dev`
     - `\l`
     - `\c docker_django_tdio_db_dev`
     - `\dt`
