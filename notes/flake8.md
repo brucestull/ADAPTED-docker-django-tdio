@@ -9,14 +9,14 @@
         - run:
             name: Run Linter
             command: |
-                pipenv run flake8 --exclude=migrations,common.py,wsgi.py,manage.py --ignore=F403,F405 --statistics
+                pipenv run flake8 --exclude=migrations,settings.py,wsgi.py,manage.py --ignore=F403,F405 --statistics
         ```
 
 - After migration:
     - `.flake8`:
         ```yml
         [flake8]
-        exclude = migrations,common.py,wsgi.py,manage.py
+        exclude = migrations,settings.py,wsgi.py,manage.py
         extend-ignore = F403,F405
         statistics = True
         ```
@@ -32,7 +32,7 @@
 
 ## Command for This Project
 
-* `flake8 --exclude=migrations,common.py,wsgi.py,manage.py --ignore=F403,F405 --statistics`
+* `flake8 --exclude=migrations,settings.py,wsgi.py,manage.py --ignore=F403,F405 --statistics`
     * [`.circleci/config.yml`](../.circleci/config.yml)
 
 * Codes to Ignore
@@ -41,10 +41,10 @@
     * `E712` - comparison to True should be 'if cond is True:' or 'if cond:'
 ## Examples
 
-* `flake8 --exclude=venv*,migrations,common.py,wsgi.py,manage.py --statistics --ignore=F841`
-* `flake8 --exclude=venv*,migrations,common.py,wsgi.py,manage.py --statistics --ignore=F841,E501`
+* `flake8 --exclude=venv*,migrations,settings.py,wsgi.py,manage.py --statistics --ignore=F841`
+* `flake8 --exclude=venv*,migrations,settings.py,wsgi.py,manage.py --statistics --ignore=F841,E501`
 
-* `flake8 --exclude=venv*,migrations,common.py,wsgi.py,manage.py --statistics` - Run flake8 on the entire project, excluding the virtual environment, migrations, settings.py, wsgi.py, and manage.py files, and show statistics
+* `flake8 --exclude=venv*,migrations,settings.py,wsgi.py,manage.py --statistics` - Run flake8 on the entire project, excluding the virtual environment, migrations, settings.py, wsgi.py, and manage.py files, and show statistics
 
 * `flake8` - Run flake8 on the entire project
 * `flake8 <app_name>` - Run flake8 on the app
