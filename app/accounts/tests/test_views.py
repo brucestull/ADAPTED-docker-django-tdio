@@ -1,4 +1,4 @@
-from accounts.forms import CustomUserChangeForm, CustomUserCreationForm
+from accounts.forms import CustomUserCreationForm
 from accounts.models import CustomUser
 from django.test import TestCase
 from django.urls import reverse
@@ -58,10 +58,13 @@ class CustomUserSignUpViewTest(TestCase):
         self.assertIsInstance(response.context["form"], CustomUserCreationForm)
         # Alternative ways to test the form:
         # Test that the form's class is `CustomUserCreationForm`.
-        self.assertEqual(response.context["form"].__class__, CustomUserCreationForm)
-        # Test that the form's class name is the string `CustomUserCreationForm`.
         self.assertEqual(
-            response.context["form"].__class__.__name__, "CustomUserCreationForm"
+            response.context["form"].__class__, CustomUserCreationForm)
+        # Test that the form's class name is the string
+        # `CustomUserCreationForm`.
+        self.assertEqual(
+            response.context["form"].__class__.__name__,
+            "CustomUserCreationForm"
         )
 
     def test_redirects_to_login_page_on_success(self):
@@ -203,7 +206,7 @@ class CustomUserUpdateViewTest(TestCase):
                 kwargs={"pk": self.a_test_user.pk},
             )
         )
-        self.assertEqual(response.status_code, 403)        
+        self.assertEqual(response.status_code, 403)
 
     def test_the_site_name_in_context(self):
         """
@@ -293,4 +296,3 @@ class CustomUserDetailViewTest(TestCase):
             )
         )
         self.assertEqual(response.status_code, 403)
-

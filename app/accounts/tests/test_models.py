@@ -6,6 +6,7 @@ TEST_USER_USERNAME = "CustomUser"
 TEST_USER_PASSWORD = "CustomUserPassword"
 TEST_USER_EMAIL = "CustomUser@email.app"
 
+
 class CustomUserModelTest(TestCase):
     """
     Tests for `CustomUser` model.
@@ -46,7 +47,10 @@ class CustomUserModelTest(TestCase):
         `CustomUser.registration_accepted.help_text` should be
         "Designates whether this user's site registration has been accepted.".
         """
-        expected_help_text = "Designates whether this user's site registration has been accepted."
+        expected_help_text = (
+            "Designates whether this user's site registration has been "
+            "accepted."
+        )
         self.assertEqual(
             CustomUser._meta.get_field("registration_accepted").help_text,
             expected_help_text,
@@ -64,7 +68,8 @@ class CustomUserModelTest(TestCase):
 
     def test_dunder_string_method(self):
         """
-        `CustomUser` model `__str__` method should return `CustomUser.username`.
+        `CustomUser` model `__str__` method should return
+        `CustomUser.username`.
         """
         expected_dunder_string = TEST_USER_USERNAME
         self.assertEqual(

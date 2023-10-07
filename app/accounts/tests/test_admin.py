@@ -11,8 +11,9 @@ TEST_USER_EMAIL = "TestUser@email.app"
 class TestCustomUserAdmin(TestCase):
     """
     Inherit from `django.test.TestCase` to access `self.client` and
-    `self.assert*` methods. `self` will be an instance of `django.test.TestCase`
-    and `django.test.TestCase` inherits from `unittest.TestCase`.
+    `self.assert*` methods. `self` will be an instance of
+    `django.test.TestCase` and `django.test.TestCase` inherits from
+    `unittest.TestCase`.
     """
 
     @classmethod
@@ -62,9 +63,9 @@ class TestCustomUserAdmin(TestCase):
         )
         self.assertEqual(custom_user_admin.list_display, expected_tuple)
 
-    # `CustomUserAdmin.list_display` is covered by `test_list_display_has_correct_fields_as_tuple`.
-    # But, we show another way to test the parts of `CustomUserAdmin.list_display`
-    # below.
+    # `CustomUserAdmin.list_display` is covered by
+    # `test_list_display_has_correct_fields_as_tuple`. But, we show another
+    # way to test the parts of `CustomUserAdmin.list_display` below.
     def test_list_display_includes_username(self):
         """
         `CustomUserAdmin` `list_display` should include `username`.
@@ -81,7 +82,8 @@ class TestCustomUserAdmin(TestCase):
 
     def test_list_display_includes_registration_accepted(self):
         """
-        `CustomUserAdmin` `list_display` should include `registration_accepted`.
+        `CustomUserAdmin` `list_display` should include
+        `registration_accepted`.
         """
         custom_user_admin = CustomUserAdmin(CustomUser, None)
         self.assertIn("registration_accepted", custom_user_admin.list_display)
@@ -95,7 +97,8 @@ class TestCustomUserAdmin(TestCase):
 
     def test_get_fieldsets_is_list_of_tuples(self):
         """
-        `CustomUserAdmin` `get_fieldsets()` method should return a list of tuples.
+        `CustomUserAdmin` `get_fieldsets()` method should return a list of
+        tuples.
         """
         custom_user_admin = CustomUserAdmin(CustomUser, None)
         fieldsets = custom_user_admin.get_fieldsets(request=None, obj=None)
@@ -104,7 +107,8 @@ class TestCustomUserAdmin(TestCase):
 
     def test_get_fieldsets_has_moderator_permissions_in_second_element(self):
         """
-        `CustomUserAdmin` `get_fieldsets()` method should return a list of tuples that includes `Moderator Permissions`.
+        `CustomUserAdmin` `get_fieldsets()` method should return a list of
+        tuples that includes `Moderator Permissions`.
         """
         custom_user_admin = CustomUserAdmin(CustomUser, None)
         fieldsets = custom_user_admin.get_fieldsets(request=None, obj=None)
@@ -113,7 +117,8 @@ class TestCustomUserAdmin(TestCase):
 
     def test_get_fieldsets_moderator_permissions_tuple(self):
         """
-        `CustomUserAdmin` `get_fieldsets()` method should return a list of tuples that includes `Moderator Permissions` as a tuple.
+        `CustomUserAdmin` `get_fieldsets()` method should return a list of
+        tuples that includes `Moderator Permissions` as a tuple.
         """
         custom_user_admin = CustomUserAdmin(CustomUser, None)
         expected_moderator_permissions_tuple = (
