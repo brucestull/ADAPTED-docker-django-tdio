@@ -24,5 +24,5 @@ RUN chmod +x /usr/src/app/entrypoint.sh
 # Copy project to Docker container
 COPY . .
 
-# run entrypoint.sh in Docker container
+# Run entrypoint.sh in Docker container
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]
