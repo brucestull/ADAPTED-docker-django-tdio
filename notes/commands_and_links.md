@@ -8,7 +8,7 @@
 - `docker compose exec web python manage.py  flush --no-input`
 - `docker compose exec web python manage.py migrate --noinput`
 - `docker compose exec web python manage.py createsuperuser --email FlynntKnapp@email.app --username FlynntKnapp`
-- `docker compose -f docker-compose.yml down -v`
+- `docker compose -f docker-compose.yml down -v --remove-orphans`
 
 - `docker compose -f docker-compose.yml up --build`
 - `docker compose -f docker-compose.yml down`
@@ -18,7 +18,8 @@
 - `docker compose exec web python manage.py  flush --no-input`
 - `docker compose exec web python manage.py migrate --noinput`
 - `docker compose exec web python manage.py createsuperuser --email FlynntKnapp@email.app --username FlynntKnapp`
-- `docker compose -f docker-compose.prod.yml down -v`
+- `docker compose exec web python manage.py collectstatic --no-input --clear`
+- `docker compose -f docker-compose.prod.yml down -v --remove-orphans`
 
 - `docker compose up --build`
 - `docker compose -f docker-compose.prod.yml up --build`
@@ -36,7 +37,7 @@
     - `\q`
 - `docker volume inspect adapted-docker-django-tdio_postgres_data`
 
-- `docker build -f ./app/Dockerfile -t hello_django:latest ./app`
+- `docker build -f ./app/Dockerfile -t config:latest ./app`
 
 - `docker compose exec web python manage.py flush --no-input`
 - `docker compose exec web python manage.py migrate`
