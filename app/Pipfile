@@ -5,12 +5,12 @@ name = "pypi"
 
 [packages]
 django = "==4.2.3"
-docutils = "==0.20.1"
+gunicorn = "==21.2.0"
 psycopg2-binary = "==2.9.6"
-flake8 = "*"
-gunicorn = "*"
+docutils = "==0.20.1"
 
 [dev-packages]
 
 [requires]
 python_version = "3.11"
+python_full_version = "3.11.0"
