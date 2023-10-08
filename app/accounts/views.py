@@ -1,6 +1,6 @@
 from accounts.forms import CustomUserChangeForm, CustomUserCreationForm
 from accounts.models import CustomUser
-from config.settings.common import THE_SITE_NAME
+from config.settings import THE_SITE_NAME
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
