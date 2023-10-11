@@ -42,6 +42,7 @@
 
 - `docker build -f ./app/Dockerfile -t config:latest ./app`
 
+- `docker compose exec web python manage.py test`
 - `docker compose exec web python manage.py flush --no-input`
 - `docker compose exec web python manage.py migrate`
 
