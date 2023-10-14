@@ -144,3 +144,11 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "login"
 
 THE_SITE_NAME = "DockerDjangoStarter - tdio"
+
+# Django Debug Toolbar settings
+# https://django-debug-toolbar.readthedocs.io/en/latest/configuration.html
+if DEBUG:
+    INSTALLED_APPS += ['debug_toolbar']
+    MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
+    INTERNAL_IPS = ['127.0.0.1']
