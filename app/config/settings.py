@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import socket
 import os
 from pathlib import Path
 
@@ -144,3 +145,18 @@ LOGIN_REDIRECT_URL = "home"
 LOGOUT_REDIRECT_URL = "login"
 
 THE_SITE_NAME = "DockerDjangoStarter - tdio"
+
+# Django Debug Toolbar settings
+# https://django-debug-toolbar.readthedocs.io/en/latest/configuration.html
+if DEBUG:
+    INSTALLED_APPS += ['debug_toolbar']
+    MIDDLEWARE = [
+        'debug_toolbar.middleware.DebugToolbarMiddleware'] + MIDDLEWARE
+    # We need to configure an IP address to allow connections from, but in
+    # Docker we can't use 127.0.0.1 since this runs in a container but we want
+    # to access the toolbar from our browser outside of the container.
+    hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+    INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + [
+        "127.0.0.1",
+        "10.0.2.2",
+    ]

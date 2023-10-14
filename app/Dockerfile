@@ -13,8 +13,8 @@ RUN apt-get update && apt-get install -y netcat
 
 # Install dependencies in Docker container
 RUN pip install --upgrade pip
-COPY ./requirements.txt .
-RUN pip install -r requirements.txt
+COPY ./requirements-dev.txt .
+RUN pip install -r requirements-dev.txt
 
 # Copy entrypoint.sh to Docker container and make it executable
 COPY ./entrypoint.sh .
