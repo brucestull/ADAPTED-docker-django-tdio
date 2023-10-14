@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/4.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
+from distutils.util import strtobool
 
 import socket
 import os
@@ -23,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-DEBUG = bool(os.environ.get("DEBUG", default=0))
+DEBUG = bool(strtobool(os.getenv("DEBUG", "0")))
 
 # 'DJANGO_ALLOWED_HOSTS' should be a single string of hosts with a space
 # between each.
