@@ -1,6 +1,7 @@
-from accounts.models import CustomUser
 from django.contrib.auth.models import AbstractUser
 from django.test import TestCase
+
+from accounts.models import CustomUser
 
 TEST_USER_USERNAME = "CustomUser"
 TEST_USER_PASSWORD = "CustomUserPassword"

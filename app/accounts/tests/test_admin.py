@@ -1,7 +1,8 @@
+from django.test import TestCase
+
 from accounts.admin import CustomUserAdmin
 from accounts.forms import CustomUserChangeForm, CustomUserCreationForm
 from accounts.models import CustomUser
-from django.test import TestCase
 
 TEST_USER_USERNAME = "TestUser"
 TEST_USER_PASSWORD = "TestUserPassword"
